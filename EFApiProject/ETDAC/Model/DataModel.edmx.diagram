@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="38d11a3626e243808651be5eb79c0bd5" Name="Diagram1">
+        <EntityTypeShape EntityType="ETDB1Model.Table1" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ETDB1Model.RGD_Merchant" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ETDB1Model.AspNetRoles" Width="1.5" PointX="1.5" PointY="7.75" />
+        <EntityTypeShape EntityType="ETDB1Model.AspNetUserClaims" Width="1.5" PointX="6" PointY="7.75" />
+        <EntityTypeShape EntityType="ETDB1Model.AspNetUserLogins" Width="1.5" PointX="6" PointY="10.75" />
+        <EntityTypeShape EntityType="ETDB1Model.AspNetUsers" Width="1.5" PointX="3.75" PointY="11.5" />
+        <EntityTypeShape EntityType="ETDB1Model.RGD_Transaction" Width="1.5" PointX="6" PointY="13.25" />
+        <AssociationConnector Association="ETDB1Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ETDB1Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ETDB1Model.AspNetUserRoles" />
+        <EntityTypeShape EntityType="ETDB1Model.RGD_Account" Width="1.5" PointX="3.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

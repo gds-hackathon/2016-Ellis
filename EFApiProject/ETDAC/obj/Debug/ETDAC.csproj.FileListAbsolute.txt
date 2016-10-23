@@ -1,0 +1,10 @@
+d:\文档\visual studio 2015\Projects\EFApi\ETDAC\bin\Debug\ETDAC.exe.config
+d:\文档\visual studio 2015\Projects\EFApi\ETDAC\bin\Debug\ETDAC.exe
+d:\文档\visual studio 2015\Projects\EFApi\ETDAC\bin\Debug\ETDAC.pdb
+d:\文档\visual studio 2015\Projects\EFApi\ETDAC\bin\Debug\EntityFramework.dll
+d:\文档\visual studio 2015\Projects\EFApi\ETDAC\bin\Debug\EntityFramework.SqlServer.dll
+d:\文档\visual studio 2015\Projects\EFApi\ETDAC\bin\Debug\EntityFramework.xml
+d:\文档\visual studio 2015\Projects\EFApi\ETDAC\bin\Debug\EntityFramework.SqlServer.xml
+d:\文档\visual studio 2015\Projects\EFApi\ETDAC\obj\Debug\ETDAC.exe
+d:\文档\visual studio 2015\Projects\EFApi\ETDAC\obj\Debug\ETDAC.pdb
+d:\文档\visual studio 2015\Projects\EFApi\ETDAC\obj\Debug\ETDAC.csprojResolveAssemblyReference.cache

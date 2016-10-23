@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ETDB1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Table1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="ETDB1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Table1" EntityType="Self.Table1" />
+    <EntitySet Name="RGD_Merchant" EntityType="ETDB1Model.RGD_Merchant" />
+    <EntitySet Name="AspNetRoles" EntityType="ETDB1Model.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="ETDB1Model.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="ETDB1Model.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="ETDB1Model.AspNetUsers" />
+    <EntitySet Name="RGD_Transaction" EntityType="ETDB1Model.RGD_Transaction" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="ETDB1Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="ETDB1Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="ETDB1Model.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="RGD_Account" EntityType="ETDB1Model.RGD_Account" />
+    <FunctionImport Name="getData" ReturnType="Collection(ETDB1Model.getData_Result)" />
+    <FunctionImport Name="sp_getMerchantBoard" ReturnType="Collection(ETDB1Model.sp_getMerchantBoard_Result1)" />
+    <FunctionImport Name="sp_getTransactionBoard" ReturnType="Collection(ETDB1Model.sp_getTransactionBoard_Result)" />
+  </EntityContainer>
+  <EntityType Name="RGD_Merchant">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="discount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="createdate" Type="DateTime" Precision="3" />
+    <Property Name="changedate" Type="DateTime" Precision="3" />
+    <Property Name="companyPayRate" Type="Decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ETDB1Model.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ETDB1Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ETDB1Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="ETDB1Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="ETDB1Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="ETDB1Model.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="RGD_Transaction">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="merchantname" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="discount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="userpayamount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="companypayamount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="createdate" Type="DateTime" Precision="3" />
+    <Property Name="changedate" Type="DateTime" Precision="3" />
+    <Property Name="useremail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="ETDB1Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ETDB1Model.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="ETDB1Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ETDB1Model.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="ETDB1Model.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+    <End Type="ETDB1Model.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityType Name="RGD_Account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="balance" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="createdate" Type="DateTime" Precision="3" />
+    <Property Name="changedate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <ComplexType Name="getData_Result">
+    <Property Type="String" Name="Merchant" Nullable="true" MaxLength="8000" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="sp_getMerchantBoard_Result">
+    <Property Type="String" Name="merchantname" Nullable="true" MaxLength="8000" />
+    <Property Type="Decimal" Name="Column1" Nullable="false" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="sp_getMerchantBoard1_Result">
+    <Property Type="String" Name="Merchant" Nullable="true" MaxLength="8000" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="sp_getMerchantBoard_Result1">
+    <Property Type="String" Name="Merchant" Nullable="true" MaxLength="8000" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="sp_getTransactionBoard_Result">
+    <Property Type="String" Name="merchantname" Nullable="true" MaxLength="8000" />
+    <Property Type="String" Name="createdate" Nullable="true" MaxLength="8" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="10" Scale="2" />
+  </ComplexType>
+</Schema>
