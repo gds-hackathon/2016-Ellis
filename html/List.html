@@ -1,0 +1,27 @@
+<p>{{data}}</p>
+<table st-table="disdata" st-safe-src="data" class="table table-striped">
+	<thead>
+		<tr>
+			<th st-sort="id">Col1</th>
+			<th st-sort="name">Col2</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="d in disdata" ng-click="PostData(d.id,d.name)">
+			<td>{{$index}}</td>
+			<td>{{d.name}}</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<div st-pagination="" st-items-by-page="2" >
+					
+				</div>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+<div class="row">
+	<a class="btn btn-xs btn-default" ng-click="PostData()" role="button">button</a>
+</div>

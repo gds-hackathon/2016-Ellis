@@ -1,0 +1,35 @@
+<table st-table="disdata" st-safe-src="data" class="table table-striped">
+	<thead>
+		<tr>
+			<th st-sort="createdate" >Date</th>
+			<th st-sort="merchantname" >Merchant</th>
+			<th st-sort="amount" >Amount</th>
+			<th st-sort="discount" >Discount</th>
+			<!--<th st-sort="userpayamount" >userpayamount</th>-->
+			<th st-sort="companypayamount" >Company Pay</th>
+			<!--<th st-sort="changedate" >changedate</th>-->
+			<th st-sort="useremail" >User</th>
+			<th st-sort="status" >Status</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="d in disdata">
+			<td st-sort="createdate" >{{d.createdate}}</td>
+			<td st-sort="merchantname" >{{d.merchantname}}</td>
+			<td st-sort="amount" >{{d.amount}}</td>
+			<td st-sort="discount" >{{d.discount}}</td>
+			<!--<td st-sort="userpayamount" >{{d.userpayamount}}</td>-->
+			<td st-sort="companypayamount" >{{d.companypayamount}}</td>
+			<!--<td st-sort="changedate" >{{d.changedate}}</td>-->
+			<td st-sort="useremail" >{{d.useremail}}</td>
+			<td st-sort="status" >{{d.status}}</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<div st-pagination="" st-items-by-page="20"></div>
+			</td>
+		</tr>
+	</tfoot>
+</table>

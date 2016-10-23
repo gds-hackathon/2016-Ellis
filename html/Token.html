@@ -1,0 +1,60 @@
+<!--<div class="row">
+    <label for="name">Email</label>
+    <input type="text" name="name" ng-model="userName" />
+</div>
+<div class="row">
+    <label for="pwd">Password</label>
+    <input type="text" name="pwd" ng-model="pwd" />
+</div>
+<div class="row">
+    <button type="button" ng-click="ExchangeToken()" class="btn btn-primary btn-lg btn-block">Login</button>
+</div>
+<div class="row">
+    <button type="button" ng-click="GoRegister()" class="btn btn-primary btn-lg btn-block">Register</button>
+</div>
+<div class="row">
+    <p>
+        {{$localStorage.token}}
+    </p>
+</div>-->
+
+<h1>GD Pay</h1>
+<hr/>
+<form class="form-horizontal" ng-show="adminLoginMode">
+	<div class="form-group row">
+		<label class="col-sm-2 control-label" for="username">Email</label>
+		<input name="username" type="email" placeholder="username" ng-model="userName" />
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-2 control-label" for="password">Password</label>
+		<input name="password" type="password" placeholder="password" ng-model="pwd" />
+	</div>
+
+	<div class="form-group row">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button class="btn btn-primary" ng-click="ExchangeAdminToken()">login Admin</button>
+			<button class="btn btn-primary" ng-click="adminLoginMode = !adminLoginMode">login as User</button>
+		</div>
+	</div>
+</form>
+<form class="form form-horizontal" ng-hide="adminLoginMode">
+	<div class="form-group row">
+		<label class="col-sm-2 control-label" for="username">Email</label>
+		<input name="username" type="email" placeholder="username" ng-model="userName" />
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-2 control-label" for="password">Password</label>
+		<input name="password" type="password" placeholder="password" ng-model="pwd" />
+	</div>
+
+	<div class="form-group row">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button class="btn btn-primary" ng-click="ExchangeToken()">login</button>
+			<button class="btn btn-primary" ng-click="adminLoginMode = !adminLoginMode">login as Admin</button>
+		</div>
+
+		<div class="col-sm-offset-1 col-sm-10">
+			<p class="message">Not registered? <a href="#" ng-click="GoRegister()">Create an account</a></p>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,43 @@
+<!--<div class="panel panel-default">
+	<div class="panel-body">
+		{{data}}
+	</div>
+</div>-->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        {{userAccount.email}}
+        </div>
+	<div class="panel-body">
+		Account Balance: {{userAccount.balance}}
+	</div>
+</div>
+<table st-table="disdata" st-safe-src="data" class="table table-striped">
+	<thead>
+		<tr>
+			<th st-sort="createdate" class="col-md-2">Date</th>
+			<th st-sort="merchantname" class="col-md-4">Detail</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="d in disdata">
+			<td class="col-md-2">{{d.createdate.substr(0,10)}}</td>
+			<td class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						{{d.merchantname}} - Discount: {{d.discount}}
+					</div>
+					<div class="panel-body">
+						 Payment: {{d.userpayamount}}
+					</div>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<div st-pagination="" st-items-by-page="5"></div>
+			</td>
+		</tr>
+	</tfoot>
+</table>

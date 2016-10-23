@@ -1,0 +1,51 @@
+<!--<div class="panel panel-default">
+	<div class="panel-body">
+		{{data}}
+	</div>
+</div>-->
+<div class="col-md-12">
+	<div class="col-md-5">
+		<div class="panel panel-default">
+			<div class="panel-heading">Top 5 Merchant</div>
+			<div class="panel-body">
+				<canvas id="doughnut" class="chart chart-bar" chart-data="chartdata" chart-labels="chartlabels">
+				</canvas>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-5">
+		<div class="panel panel-default">
+			<div class="panel-heading">Top 5 Transaction</div>
+			<div class="panel-body">
+				<canvas id="doughnut" class="chart chart-bar" chart-data="chartTrandata" chart-labels="chartTranlabels">
+				</canvas>
+			</div>
+		</div>
+	</div>
+</div>
+<table st-table="disdata" st-safe-src="data" class="table table-striped">
+	<tbody>
+		<tr ng-repeat="d in disdata">
+			<td class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading" class="text-primary">
+						{{d.name}}
+					</div>
+					<div class="panel-body">
+						 <p class="text-primary">Address: {{d.address}}</p>
+						 <p class="text-primary">Phone: {{d.phone}}</p>
+						 <p class="text-primary">Discount: {{d.discount}}</p>
+						 <p class="text-primary">Company Pay Rate: {{d.companyPayRate}}</p>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">
+				<div st-pagination="" st-items-by-page="5"></div>
+			</td>
+		</tr>
+	</tfoot>
+</table>
