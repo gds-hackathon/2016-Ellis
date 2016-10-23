@@ -1,0 +1,30 @@
+{
+  "name": "jskinect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-cookies": "^1.5.8",
+    "angular-local-storage": "^0.5.0",
+    "angular-oauth2": "^4.0.0",
+    "angular-smart-table": "^2.1.8",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.7",
+    "chart.js": "^2.3.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^2.1.1",
+    "jquery": "^3.1.1",
+    "ngstorage": "^0.3.11",
+    "query-string": "^4.2.3"
+  },
+  "devDependencies": {
+    "angular-chart.js": "^1.0.3"
+  }
+}

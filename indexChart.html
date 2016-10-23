@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html ng-app="app">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="./node_modules/chart.js/dist/Chart.js"></script>
+    <script type="text/javascript" src="./node_modules/angular-chart.js/dist/angular-chart.js"></script>
+    
+    <script type="text/javascript" src="./node_modules/angular-smart-table/dist/smart-table.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="DoughnutCtrl">
+    <p>{{data}}</p>
+   <canvas id="doughnut" class="chart chart-doughnut"  chart-data="chartdata" chart-labels="chartlabels">
+
+</canvas>
+ 
+</body>
+<script>
+angular.module("app", ["chart.js"]).controller("DoughnutCtrl", function ($scope) {
+  $scope.chartlabels = ["LaLaLa","merchant2"];
+  $scope.chartdata = ["400.00","55.00"];
+});
+    </script>
+
+</html>
